@@ -38,3 +38,11 @@ and for other models such as mistral
 ```bash
 python print_tokens.py --tokenizer "mistralai/Mistral-7B-v0.1" --prompt "Who is Kitty Purry?"
 ```
+
+```bash
+python extract_embeddings.py --tokenizer "meta-llama/Meta-Llama-3-8b-Instruct" --model "meta-llama/Meta-Llama-3-8b-Instruct" --embeddings_file "./output/llama3_8b_embeddings_layer.pth" --dimensions 4096
+```
+
+```bash
+python visualize_cosine_similarity.py --tokenizer "meta-llama/Meta-Llama-3-8b-Instruct" --model "meta-llama/Meta-Llama-3-8b-Instruct" --embeddings_file "./output/llama3_8b_embeddings_layer.pth" --dimensions 4096 --prompt "Sit Sat Mat Bat Hat Cat Nap Kit Kat Dog Fish Tree Math London Paris Rio Berlin Sydney Moscow Red Blue Green Black White for while print loop"
+```

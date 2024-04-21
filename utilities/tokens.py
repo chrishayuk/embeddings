@@ -1,6 +1,13 @@
-def print_tokens(tokenizer, input_ids_tensor, last_column_width=50):
-    # Convert input ids to tokens
-    token_texts = [tokenizer.decode([token_id], skip_special_tokens=True) for token_id in input_ids_tensor[0]]
+def print_tokens(tokenizer, input_ids_tensor, tokenizer_name=""):
+    # Depending on the tokenizer, the token decoding might differ
+    if tokenizer_name.lower() == "gpt-4":
+        # Convert tensor to list for decoding if necessary
+        token_ids = input_ids_tensor[0].tolist()
+        
+        # Ensure token_ids are passed as a list to decode method
+        token_texts = [tokenizer.decode([token_id]) for token_id in token_ids]
+    else:
+        token_texts = [tokenizer.decode([token_id], skip_special_tokens=True) for token_id in input_ids_tensor[0]]
 
     # Prepare and print the header
     header = f"{'Token':<10} | {'ID':<8}"
